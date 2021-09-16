@@ -1,2 +1,2 @@
 # Proyecto_MisionTIC
-# conexion de repositorio Diana.
+# conexion de repositorio Diana
