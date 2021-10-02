@@ -4,9 +4,9 @@ import theme from './temaConfig'
 import Navbar from './Components/Navbar'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Table,Button,Container,Modal,ModalBody,ModalHeader, FormGroup , ModalFooter} from 'reactstrap'
-import maestroUsuarios from './Components/maestroUsuarios'
+import registroVentas from "./Components/RegistroVenta"
 
-const Usuarios = maestroUsuarios
+const Ventas = registroVentas
 
 
 function App(){
@@ -14,7 +14,7 @@ function App(){
 
         <ThemeProvider theme={theme}>
             <Navbar />
-            <Usuarios />
+            <Ventas />
         </ThemeProvider>
  
     );
