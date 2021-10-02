@@ -9,9 +9,6 @@ function App(){
     return(
         <ThemeProvider theme={theme}>
             <Navbar />
-            <Button variant="contained" color="primary">
-            Hola Mundo
-            </Button>
         </ThemeProvider>
     );
 }

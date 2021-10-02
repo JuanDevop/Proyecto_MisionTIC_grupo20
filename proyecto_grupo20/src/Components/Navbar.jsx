@@ -1,11 +1,13 @@
 import AppBar from '@material-ui/core/AppBar';
 import React from 'react'
 import Toolbar from '@material-ui/core/Toolbar'
-import {Typography,makeStyles} from '@material-ui/core'
+import {Typography} from '@material-ui/core'
+import {makeStyles} from '@material-ui/styles'
 import MenuIcon from '@material-ui/icons/Menu'
 import IconButton from '@material-ui/core/IconButton'
-import {LoginIcon} from '@material-ui/icons';
-import { Button } from "@material-ui/core";
+import { Button } from "@material-ui/core"
+import {Icon} from '@material-ui/core'
+
 
 
 
@@ -32,7 +34,7 @@ export const Navbar = () => {
                     Sistema de Ventas
                     </Typography>
                     <Button color='inherit'>
-                        Login <IconButton> <LoginIcon /> </IconButton>
+                        Login <Icon>account_circle</Icon>
                     </Button>
                 </Toolbar>   
             </AppBar>
