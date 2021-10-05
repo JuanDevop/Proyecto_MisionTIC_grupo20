@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Table, Button, Container, Modal, ModalBody, ModalHeader, FormGroup, ModalFooter, Label, Input, Form, FormText } from 'reactstrap'
-import nuevoUsuario from './nuevoUsuario'
+
 
 
 const data = [{
-    cedula: "1014300000", nombre: "Juan Pablo", rol: "Administrador", estado: "Autorizado"
+    id: "1010001", descripcion: "Manzana verde", valorunitario: 1750, estado: true
 }];
 
-export class maestroUsuarios extends React.Component {
+export class maestroProductos extends React.Component {
     state = {
         data: data,
         form: {
-            cedula: '',
-            nombre: '',
-            rol: '',
-            estado: 'Pendiente',
+            id: '',
+            descripcion: '',
+            valorunitario: 0,
+            estado: false,
         },
         modalInsertar: false,
     }
@@ -53,15 +53,17 @@ export class maestroUsuarios extends React.Component {
                     <br />
                     <br />
                     <br />
-                    <Button color="success" onClick={() => this.mostrarModalInsertar()}>Crear Nuevo Usuario</Button>
+                    <Button color="success" onClick={() => this.mostrarModalInsertar()}>Crear Nuevo Producto</Button>
                     <br /><br />
+
+
 
                     <Table>
                         <thead>
                             <tr>
-                                <th>Cedula</th>
-                                <th>Nombre</th>
-                                <th>ROL</th>
+                                <th>Id</th>
+                                <th>Descripcion</th>
+                                <th>Valor Unitario</th>
                                 <th>Estado</th>
                                 <th>Acciones</th>
                             </tr>
@@ -69,9 +71,9 @@ export class maestroUsuarios extends React.Component {
                         <tbody>
                             {this.state.data.map((elemento) => (
                                 <tr>
-                                    <td>{elemento.cedula}</td>
-                                    <td>{elemento.nombre}</td>
-                                    <td>{elemento.rol}</td>
+                                    <td>{elemento.id}</td>
+                                    <td>{elemento.descripcion}</td>
+                                    <td>{elemento.valorunitario}</td>
                                     <td>{elemento.estado}</td>
                                     <td><Button color="primary">Editar</Button>
                                         <Button color="danger">Eliminar</Button></td>
@@ -82,36 +84,39 @@ export class maestroUsuarios extends React.Component {
                     </Table>
 
                 </Container>
+
                 <Modal className="modal-dialog modal-dialog-centered" isOpen={this.state.modalInsertar}>
                     <ModalHeader>
-                        Crear Nuevo Usuario
+                        Crear Nuevo Producto
                     </ModalHeader>
                     <ModalBody>
                         <Form>
                             <FormGroup>
-                                <Label for="cedula"> Cedula</Label>
-                                <Input type="text" id="cedula" name="cedula" onChange={this.handleChange} />
+                                <Label for="id">Id</Label>
+                                <Input type="text" id="id" name="id" onChange={this.handleChange} />
                             </FormGroup>
                             <FormGroup>
-                                <Label for="nombre" > Nombre</Label>
-                                <Input type="text" id="nombre" name="nombre" onChange={this.handleChange} />
+                                <Label for="descripcion" > Descripcion</Label>
+                                <Input type="text" id="descripcion" name="descripcion" onChange={this.handleChange} />
                             </FormGroup>
                             <FormGroup>
-                                <Label for="ROL"> Rol</Label>
-                                <Input type="select" id="rol" name="rol" onChange={this.handleChange}>
-                                    <option>Administrador</option>
-                                    <option>Vendedor</option>
-                                </Input>
+                                <Label for="valorunitario" > Valor Unitario</Label>
+                                <Input type="number" step="1" id="valorunitario" name="valorunitario" onChange={this.handleChange} />
+                            </FormGroup>
+                            <br />
+                            <FormGroup check>
+                                <Label check>
+                                    <Input type="checkbox" id="estado" name="estado" onChange={this.handleChange}  />{' '}
+                                    ¿Esta disponible?
+                                </Label>
                             </FormGroup>
                         </Form>
                     </ModalBody>
-
+                    
                     <ModalFooter>
                         <Button color="Primary" onClick={() => this.insertar()}> Insertar</Button>
                         <Button color="Primary" onClick={() => this.ocultarModalInsertar()}> Cancelar</Button>
                     </ModalFooter>
-
-
                 </Modal>
             </div>
         )
@@ -119,4 +124,4 @@ export class maestroUsuarios extends React.Component {
 }
 
 
-export default maestroUsuarios;
+export default maestroProductos;
